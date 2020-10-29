@@ -14,6 +14,7 @@ server {
     location / {
        proxy_pass ${PROXY_PROTO:-https}://${PROXY_ADDRESS}; 
        proxy_set_header Authorization "Bearer ${PROXY_BEARER}";
+       add_header 'Access-Control-Allow-Origin' '*';
     }
 }
 EOF
